@@ -1,0 +1,49 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top"
+  style="background-color: #a2d2ff">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SHOPING APP</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/products"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products/new">New</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <%if(!currentUser){%>
+        <a class="nav-link" href="/login">login</a>
+        <%} else {%>
+        <a class="nav-link" href="#">Hello_<%=currentUser.username%></a>
+        <a href="'/user/<%=currentUser._id%>/cart" class="nav-link active">
+          <i class="fa-solid fa-cart-shopping m-2"></i
+        ></a>
+        <sup
+          ><span class="badge bg-danger"
+            ><%=currentUser.cart.length%></span
+          ></sup
+        >
+        <a class="nav-link" href="/logout">logout</a>
+        <%}%>
+      </form>
+    </div>
+  </div>
+</nav>
+<div style="height: 50px"></div>

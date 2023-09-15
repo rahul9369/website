@@ -1,0 +1,16 @@
+<%-include("../partials/header")%> <%-include("../partials/navbar")%>
+<%-include("../partials/flash")%>
+<div>
+  <% for(let item of products){%>
+  <div class="card text-center" style="width: 18rem">
+    <img src="<%=item.img%>" class="card-img-top" alt="..." height="200px" />
+    <div class="card-body">
+      <h5 class="card-title"><%=item.name%></h5>
+      <h5 class="card-title">&#8377; <%=item.price%></h5>
+      <p class="card-text"><%=item.desc.substring(0,10)%>...</p>
+      <a href="/products/<%=item._id%>" class="btn btn-primary">View Product</a>
+    </div>
+  </div>
+  <%}%>
+</div>
+<%-include("../partials/footer")%>

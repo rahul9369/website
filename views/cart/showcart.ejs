@@ -1,0 +1,55 @@
+<%-include("../partials/header")%> <%-include("../partials/navbar")%>
+<%-include("../partials/flash")%>
+<div class="mt-6" style="margin: 20px">
+  <h3 class="display-6">My cart</h3>
+  <div class="row mt-6">
+    <div class="col-lg-8">
+      <%for(let item of userCart){%>
+
+      <div class="card mb-3" style="max-width: 80%">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="<%=item.img%>"
+              class="img-fluid rounded-start"
+              alt="..."
+              height="200px" />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">&#8377;<%=item.price%></h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
+              </p>
+              <form
+                action="/user/<%=currentUser._id%>/cart/<%=item._id%>?_method=DELETE"
+                method="POST">
+                <button class="btn btn-sm btn-danger">remove</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%}%>
+    </div>
+    <div class="col-md-4">
+      <%totalAmount=0%>
+      <h4>product</h4>
+      <%for(let item of userCart){%>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <%=item.name%>-<strong>&#8377;<%=item.price%></strong>
+        </li>
+        <%totalAmount+=item.price%>
+      </ul>
+      <%}%>
+      <div class="mt-2">
+        <p class="fw-bold">Total amount -&#8377;<%=totalAmount%></p>
+      </div>
+      <button class="btn btn-success">Procced to Pay</button>
+    </div>
+  </div>
+  <%-include("../partials/footer")%>
+</div>

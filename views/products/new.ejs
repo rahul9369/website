@@ -1,0 +1,50 @@
+<%-include("../partials/header")%> <%-include("../partials/navbar")%>
+<fieldset>
+  <legend>ADD new product</legend>
+  <form class="validated-form" action="/products" method="POST" novalidate>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"></label>
+      <input
+        type="text"
+        class="form-control"
+        id=""
+        name="product[name]"
+        placeholder="product name"
+        required />
+    </div>
+    <br />
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"></label>
+      <input
+        type="url"
+        class="form-control"
+        id=""
+        name="product[img]"
+        placeholder="img"
+        required />
+    </div>
+    <br />
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"></label>
+      <input
+        type="number"
+        class="form-control"
+        name="product[price]"
+        placeholder="price"
+        required />
+    </div>
+    <br />
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"></label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        name="product[desc]"
+        required></textarea>
+      <br />
+      <button>submit</button>
+    </div>
+  </form>
+</fieldset>
+<%-include("../partials/footer")%>
