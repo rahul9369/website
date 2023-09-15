@@ -65,7 +65,7 @@ app.use(productRoutes);
 app.use(cartRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Landing Page");
+  res.render("products/land");
 });
 
 app.listen(process.env.PORT || 3000, () => {
